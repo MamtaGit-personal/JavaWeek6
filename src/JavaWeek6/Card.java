@@ -18,7 +18,7 @@ public class Card {
 	String cardName; //Ace of Diamonds, or Two of Hearts
 	
 	
-	//public Card() {}
+	public Card() {}
 	
 	public Card(String cardName, String cardSuit, int cardValue ){
 		this.cardName = cardName;

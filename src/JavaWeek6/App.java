@@ -27,9 +27,8 @@ public class App {
 		Player player2 = new Player("Player 2");
 		
 		deck.shuffle();
+		//deck.describe();
 		
-		//b. Using a traditional for loop, iterate 52 times calling the Draw method on the other player 
-		//each iteration using the Deck you instantiated.
 		distributeCardsBetweenTwoPlayers(deck, player1, player2);
 				
 		playFlipGameToCompareTwoPlayersScore(player1, player2);
@@ -58,14 +57,19 @@ public class App {
 	public static void playFlipGameToCompareTwoPlayersScore(Player player1, Player player2) {
 		
 		for(int i = 0; i < 26; i++) {
+			
 			Card player1Card = player1.flip();
 			Card player2Card = player2.flip();
+			
 			if(player1Card.cardValue == player2Card.cardValue)
 				System.out.println("No point was awarded.");
+			
 			else if(player1Card.cardValue > player2Card.cardValue) {
 				player1.incrementScore();
 				System.out.println("Player 1 was awarded one point");
-			} else {
+			} 
+			
+			else {
 				player2.incrementScore();
 				System.out.println("Player 2 was awarded one point");
 			}
@@ -76,14 +80,17 @@ public class App {
 	//d. Compare the final score from each player and print result. 
 	public static void compareFinalScoreOfTwoPlayersAndPrintResult(Player player1, Player player2) {
 		if(player1.score > player2.score) {
+			
 			System.out.println(player1.playerName + " WON the game.");
 			System.out.println(player1.playerName + "'s score is:" + player1.score + " and " + player2.playerName + "'s score is:" + player2.score);
 		}
 		else if(player2.score > player1.score) {
+			
 			System.out.println(player2.playerName + " WON the game.");
 			System.out.println(player1.playerName + "'s score is:" + player1.score + " and " + player2.playerName + "'s score is:" + player2.score);
 		}
 		else {
+			
 			System.out.println("Draw - both players had the same score.");
 			System.out.println(player1.playerName + "'s score is:" + player1.score + " and " + player2.playerName + "'s score is:" + player2.score);
 		}

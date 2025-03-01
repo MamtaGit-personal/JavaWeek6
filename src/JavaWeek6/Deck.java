@@ -3,6 +3,7 @@ package JavaWeek6;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 /*
 Deck
@@ -42,9 +43,27 @@ public class Deck {
 	}
 	
 	//1. shuffle (randomizes the order of the cards)
+	/*
+	 * public void shuffle() 
+	 * { Collections.shuffle(this.cards); }
+	 */
 	public void shuffle() {
-		Collections.shuffle(this.cards);
+		List<Card> shuffledCard = new ArrayList<>();
+		
+		for(int i = this.cards.size()-1; i >= 0; i--) {
+			System.out.println("**************    This.cards size is:  "  + this.cards.size());
+			
+			Random random = new Random();
+			int randomNumber = random.nextInt(this.cards.size());
+			shuffledCard.add(this.cards.get(randomNumber));	
+			this.cards.remove(randomNumber);
+			
+		}// for()
+		
+		this.cards = shuffledCard;
+		
 	}
+	
 	
 	// 2. draw (removes and returns the top card of the Cards field)
 	public Card draw() {
